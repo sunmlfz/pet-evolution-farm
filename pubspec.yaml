@@ -1,0 +1,31 @@
+name: pet_evolution_farm
+description: 宠物进化田园 - 养成+收集+战斗+农场经营游戏
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flame: ^1.18.0
+  flutter_riverpod: ^2.5.1
+  riverpod_annotation: ^2.3.5
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  uuid: ^4.3.3
+  path_provider: ^2.1.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+  hive_generator: ^2.0.1
+  build_runner: ^2.4.8
+  riverpod_generator: ^2.4.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/data/
