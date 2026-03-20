@@ -95,7 +95,7 @@ class _MapScreenState extends ConsumerState<MapScreen> {
   @override
   Widget build(BuildContext context) {
     final player = ref.watch(playerProvider);
-    final unlockedMaps = MapSystem.getUnlockedAreas(player.unlockedMapIds);
+    // final unlockedMaps = MapSystem.getUnlockedAreas(player.unlockedMapIds);
     final allMaps = MapSystem.getAllAreas();
 
     return Scaffold(

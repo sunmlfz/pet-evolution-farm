@@ -224,13 +224,11 @@ class BattleEngine {
   static int _calcPlayerDamage(
       Pet pet, MonsterConfig monster, BattleActionType action) {
     double base = pet.stats.attackPower.toDouble();
-    double multiplier = 1.0;
 
     if (action == BattleActionType.SKILL_ATTACK && pet.skills.isNotEmpty) {
       final skill = pet.skills[0];
       final profBonus = skill.proficiency * 0.15;
       base = base * 0.6 + skill.damage + profBonus;
-      multiplier = 1.0;
       // 使用技能提升熟练度
       skill.proficiency = (skill.proficiency + 1).clamp(0, 100);
     } else {

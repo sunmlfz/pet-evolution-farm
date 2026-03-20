@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../models/farm.dart';
 import '../providers/game_provider.dart';
-import 'farm_screen.dart';
 import 'pet_screen.dart';
 import 'map_screen.dart';
-import 'battle_screen.dart';
 
 /// 主界面 - 底部导航栏切换四大核心界面
 class HomeScreen extends ConsumerStatefulWidget {
@@ -78,7 +77,7 @@ class _PetTab extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final pets = ref.watch(petsProvider);
-    final player = ref.watch(playerProvider);
+    ref.watch(playerProvider); // 订阅更新（player 在子组件中使用）
 
     return Column(
       children: [

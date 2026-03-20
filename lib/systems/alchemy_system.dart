@@ -55,11 +55,11 @@ class AlchemySystem {
     switch (recipe.effect.type) {
       case PotionEffectType.HP_RESTORE:
         final healAmount = (pet.stats.maxHp * recipe.effect.value).round();
-        final before = pet.stats.hp;
-        pet.stats.hp = (pet.stats.hp + healAmount).clamp(0, pet.stats.maxHp);
-        final actualHeal = pet.stats.hp - before;
+        final before = pet.stats.currentHp;
+        pet.stats.currentHp = (pet.stats.currentHp + healAmount).clamp(0, pet.stats.maxHp);
+        final actualHeal = pet.stats.currentHp - before;
         message = '${recipe.emoji}${recipe.name}：${pet.name} 恢复了 $actualHeal HP！'
-            '（${pet.stats.hp}/${pet.stats.maxHp}）';
+            '（${pet.stats.currentHp}/${pet.stats.maxHp}）';
         break;
       case PotionEffectType.ATK_BOOST:
         pet.stats.attackPower += recipe.effect.value.round();
@@ -72,7 +72,7 @@ class AlchemySystem {
       case PotionEffectType.HP_BOOST:
         pet.stats.maxHp += recipe.effect.value.round();
         pet.stats.defense += 20; // 铁壁战药额外+20防御
-        pet.stats.hp = (pet.stats.hp + recipe.effect.value.round()).clamp(0, pet.stats.maxHp);
+        pet.stats.currentHp = (pet.stats.currentHp + recipe.effect.value.round()).clamp(0, pet.stats.maxHp);
         message = '${recipe.emoji}${recipe.name}：${pet.name} 最大HP+${recipe.effect.value.round()} 防御+20！';
         break;
     }

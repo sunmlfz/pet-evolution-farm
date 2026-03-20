@@ -45,6 +45,7 @@ class BattleSystem {
     // 宠物升级（可能多次）
     final levelUps = <int>[];
     while (playerPet.canLevelUp) {
+      // ignore: unused_local_variable
       final oldLevel = playerPet.level;
       playerPet.levelUp();
       levelUps.add(playerPet.level);
