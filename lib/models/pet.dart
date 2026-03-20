@@ -76,6 +76,12 @@ class PetStats extends HiveObject {
   @HiveField(7)
   int speed;       // 速度
 
+  @HiveField(8)
+  int currentHp;   // 当前生命值（持久化，战斗后不重置）
+
+  @HiveField(9)
+  int lastRegenMs; // 最后一次自然恢复时间戳（毫秒）
+
   PetStats({
     this.strength = 10,
     this.agility = 10,
@@ -85,7 +91,27 @@ class PetStats extends HiveObject {
     this.attackPower = 15,
     this.defense = 5,
     this.speed = 10,
-  });
+    int? currentHp,
+    this.lastRegenMs = 0,
+  }) : currentHp = currentHp ?? 100; // 默认满血
+
+  /// 是否满血
+  bool get isFullHp => currentHp >= maxHp;
+
+  /// HP百分比
+  double get hpRatio => maxHp > 0 ? currentHp / maxHp : 0.0;
+
+  /// 恢复HP（每30秒回复1%最大HP）
+  void tickRegen() {
+    if (isFullHp) return;
+    final now = DateTime.now().millisecondsSinceEpoch;
+    final elapsed = now - lastRegenMs;
+    final regenTicks = elapsed ~/ 30000; // 每30秒一tick
+    if (regenTicks <= 0) return;
+    final regenAmount = (maxHp * 0.01 * regenTicks).round().clamp(1, maxHp);
+    currentHp = (currentHp + regenAmount).clamp(0, maxHp);
+    lastRegenMs = now;
+  }
 
   /// 根据属性计算战斗力
   int get combatPower =>
@@ -190,6 +216,7 @@ class Pet extends HiveObject {
     stats.attackPower += 3;
     stats.defense += 1;
     stats.speed += 1;
+    stats.currentHp = stats.maxHp; // 升级时满血
     // 每5级解锁新技能槽
     if (level % 5 == 0 && skillSlots < 6) {
       skillSlots++;

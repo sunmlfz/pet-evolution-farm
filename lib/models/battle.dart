@@ -34,64 +34,30 @@ class MonsterConfig {
   });
 }
 
-/// 静态怪物配置表
+/// 静态怪物配置表（共20种）
 const List<MonsterConfig> kMonsterConfigs = [
-  MonsterConfig(
-    monsterId: 'wild_rabbit',
-    name: '野生兔子',
-    level: 1,
-    hp: 50,
-    attackPower: 8,
-    defense: 2,
-    speed: 12,
-    expReward: 30,
-    goldReward: 15,
-    dropRates: {'grass_herb': 0.5},
-    spriteId: 'monster_rabbit',
-    mapId: 'forest_1',
-  ),
-  MonsterConfig(
-    monsterId: 'stone_crab',
-    name: '石甲蟹',
-    level: 3,
-    hp: 120,
-    attackPower: 15,
-    defense: 10,
-    speed: 5,
-    expReward: 80,
-    goldReward: 35,
-    dropRates: {'iron_ore': 0.4, 'rare_egg': 0.05},
-    spriteId: 'monster_crab',
-    mapId: 'forest_1',
-  ),
-  MonsterConfig(
-    monsterId: 'sand_scorpion',
-    name: '沙漠蝎',
-    level: 8,
-    hp: 200,
-    attackPower: 30,
-    defense: 8,
-    speed: 18,
-    expReward: 200,
-    goldReward: 80,
-    dropRates: {'venom_sac': 0.6, 'special_egg': 0.02},
-    spriteId: 'monster_scorpion',
-    mapId: 'desert_1',
-  ),
-  MonsterConfig(
-    monsterId: 'mountain_bear',
-    name: '山岭熊',
-    level: 15,
-    hp: 500,
-    attackPower: 50,
-    defense: 25,
-    speed: 8,
-    expReward: 500,
-    goldReward: 200,
-    dropRates: {'bear_claw': 0.7, 'rare_egg': 0.1},
-    spriteId: 'monster_bear',
-    mapId: 'mountain_1',
-  ),
+  // ===== 新手森林 (推荐Lv1-8) =====
+  MonsterConfig(monsterId:'wild_rabbit',     name:'野生兔子',   level:1,  hp:60,   attackPower:10, defense:2,  speed:12, expReward:25,  goldReward:12,  dropRates:{'grass_herb':0.5},                    spriteId:'monster_rabbit',    mapId:'forest_1'),
+  MonsterConfig(monsterId:'forest_boar',     name:'野猪',       level:2,  hp:90,   attackPower:14, defense:5,  speed:8,  expReward:40,  goldReward:18,  dropRates:{'boar_tusk':0.4},                     spriteId:'monster_boar',      mapId:'forest_1'),
+  MonsterConfig(monsterId:'stone_crab',      name:'石甲蟹',     level:3,  hp:130,  attackPower:16, defense:12, speed:4,  expReward:65,  goldReward:30,  dropRates:{'iron_ore':0.4,'rare_egg':0.03},      spriteId:'monster_crab',      mapId:'forest_1'),
+  MonsterConfig(monsterId:'green_snake',     name:'绿林蛇',     level:4,  hp:100,  attackPower:20, defense:6,  speed:16, expReward:80,  goldReward:35,  dropRates:{'snake_scale':0.5},                   spriteId:'monster_snake',     mapId:'forest_1'),
+  MonsterConfig(monsterId:'wolf_pup',        name:'幼狼',       level:5,  hp:160,  attackPower:22, defense:8,  speed:14, expReward:100, goldReward:45,  dropRates:{'wolf_fang':0.3,'rare_egg':0.04},    spriteId:'monster_wolf',      mapId:'forest_1'),
+  MonsterConfig(monsterId:'giant_spider',    name:'巨型蜘蛛',   level:6,  hp:140,  attackPower:25, defense:7,  speed:18, expReward:120, goldReward:50,  dropRates:{'spider_silk':0.6},                   spriteId:'monster_spider',    mapId:'forest_1'),
+  MonsterConfig(monsterId:'forest_golem',    name:'树桩傀儡',   level:8,  hp:250,  attackPower:28, defense:18, speed:3,  expReward:160, goldReward:70,  dropRates:{'ancient_wood':0.4,'rare_egg':0.06}, spriteId:'monster_golem',     mapId:'forest_1'),
+  // ===== 炎热沙漠 (推荐Lv5-15) =====
+  MonsterConfig(monsterId:'sand_snake',      name:'沙漠游蛇',   level:5,  hp:120,  attackPower:28, defense:5,  speed:20, expReward:130, goldReward:55,  dropRates:{'venom_sac':0.4},                     spriteId:'monster_sand_snake',mapId:'desert_1'),
+  MonsterConfig(monsterId:'desert_rat',      name:'沙漠鼠',     level:6,  hp:90,   attackPower:30, defense:4,  speed:22, expReward:110, goldReward:45,  dropRates:{'desert_bone':0.5},                   spriteId:'monster_desert_rat',mapId:'desert_1'),
+  MonsterConfig(monsterId:'sand_scorpion',   name:'沙漠蝎',     level:8,  hp:200,  attackPower:35, defense:10, speed:12, expReward:190, goldReward:80,  dropRates:{'venom_sac':0.6,'special_egg':0.02}, spriteId:'monster_scorpion',  mapId:'desert_1'),
+  MonsterConfig(monsterId:'cactus_golem',    name:'仙人掌怪',   level:10, hp:280,  attackPower:32, defense:20, speed:5,  expReward:240, goldReward:100, dropRates:{'cactus_spike':0.5},                  spriteId:'monster_cactus',    mapId:'desert_1'),
+  MonsterConfig(monsterId:'sand_worm',       name:'沙地蠕虫',   level:12, hp:350,  attackPower:40, defense:12, speed:8,  expReward:300, goldReward:130, dropRates:{'worm_fluid':0.4,'rare_egg':0.08},   spriteId:'monster_worm',      mapId:'desert_1'),
+  MonsterConfig(monsterId:'desert_phoenix',  name:'沙漠火鸟',   level:14, hp:320,  attackPower:50, defense:15, speed:25, expReward:380, goldReward:160, dropRates:{'phoenix_feather':0.3,'rare_egg':0.1},spriteId:'monster_phoenix',  mapId:'desert_1'),
+  // ===== 险峻山岭 (推荐Lv12-25) =====
+  MonsterConfig(monsterId:'rock_lizard',     name:'岩石蜥蜴',   level:12, hp:280,  attackPower:42, defense:18, speed:10, expReward:280, goldReward:110, dropRates:{'lizard_scale':0.5},                  spriteId:'monster_lizard',    mapId:'mountain_1'),
+  MonsterConfig(monsterId:'mountain_eagle',  name:'山岭雄鹰',   level:14, hp:260,  attackPower:55, defense:12, speed:28, expReward:340, goldReward:140, dropRates:{'eagle_feather':0.4},                 spriteId:'monster_eagle',     mapId:'mountain_1'),
+  MonsterConfig(monsterId:'mountain_bear',   name:'山岭熊',     level:15, hp:500,  attackPower:55, defense:28, speed:6,  expReward:450, goldReward:190, dropRates:{'bear_claw':0.7,'rare_egg':0.1},     spriteId:'monster_bear',      mapId:'mountain_1'),
+  MonsterConfig(monsterId:'stone_troll',     name:'石头巨魔',   level:18, hp:650,  attackPower:65, defense:35, speed:4,  expReward:580, goldReward:240, dropRates:{'troll_stone':0.5,'rare_egg':0.12},  spriteId:'monster_troll',     mapId:'mountain_1'),
+  MonsterConfig(monsterId:'ice_dragon',      name:'幼冰龙',     level:22, hp:900,  attackPower:80, defense:40, speed:15, expReward:800, goldReward:350, dropRates:{'dragon_scale':0.4,'special_egg':0.05},spriteId:'monster_ice_dragon',mapId:'mountain_1'),
+  MonsterConfig(monsterId:'ancient_golem',   name:'远古傀儡',   level:25, hp:1200, attackPower:90, defense:50, speed:2,  expReward:1000,goldReward:500, dropRates:{'ancient_core':0.3,'special_egg':0.08},spriteId:'monster_ancient',  mapId:'mountain_1'),
 ];
 
 /// 战斗动作类型
@@ -166,7 +132,9 @@ class BattleEngine {
     required MonsterConfig monster,
   }) {
     final rounds = <BattleRound>[];
-    int playerHp = playerPet.stats.maxHp;
+    // 使用当前HP（持久化），而非满血开始战斗
+    playerPet.stats.tickRegen(); // 先执行自然恢复
+    int playerHp = playerPet.stats.currentHp;
     int monsterHp = monster.hp;
     int roundNum = 0;
     bool playerWon = false;
@@ -187,16 +155,15 @@ class BattleEngine {
       String? skillUsed;
 
       if (playerFirst) {
-        // 玩家先手
+        // 玩家先手：双方必然受伤（怪物惯性反击）
         playerDamage = _calcPlayerDamage(playerPet, monster, actionType);
         monsterHp -= playerDamage;
         if (useSkill && playerPet.skills.isNotEmpty) {
           skillUsed = playerPet.skills[0].skillId;
         }
-        if (monsterHp > 0) {
-          monsterDamage = _calcMonsterDamage(monster, playerPet);
-          playerHp -= monsterDamage;
-        }
+        // 怪物即使死亡也有惯性伤害，确保每场战斗玩家HP必然减少
+        monsterDamage = _calcMonsterDamage(monster, playerPet);
+        playerHp -= monsterDamage;
       } else {
         // 怪物先手
         monsterDamage = _calcMonsterDamage(monster, playerPet);
@@ -225,6 +192,10 @@ class BattleEngine {
     }
 
     playerWon = monsterHp <= 0;
+
+    // HP持久化：将战斗最终HP写回宠物属性
+    playerPet.stats.currentHp = playerHp.clamp(0, playerPet.stats.maxHp);
+    playerPet.stats.lastRegenMs = DateTime.now().millisecondsSinceEpoch;
 
     // 计算奖励
     int expGained = playerWon ? monster.expReward : monster.expReward ~/ 5;
@@ -257,19 +228,24 @@ class BattleEngine {
 
     if (action == BattleActionType.SKILL_ATTACK && pet.skills.isNotEmpty) {
       final skill = pet.skills[0];
-      base += skill.damage + skill.proficiency * 0.1;
-      multiplier = 1.5;
+      final profBonus = skill.proficiency * 0.15;
+      base = base * 0.6 + skill.damage + profBonus;
+      multiplier = 1.0;
       // 使用技能提升熟练度
       skill.proficiency = (skill.proficiency + 1).clamp(0, 100);
+    } else {
+      base = base * 0.8;
     }
 
-    final damage = ((base * multiplier) - monster.defense * 0.5).round();
-    return damage.clamp(1, 9999);
+    final damage = (base - monster.defense * 0.4).round();
+    return damage.clamp(2, 9999);
   }
 
-  /// 计算怪物伤害
+  /// 计算怪物伤害（最低保证2点，不可避免的惯性伤害）
   static int _calcMonsterDamage(MonsterConfig monster, Pet pet) {
-    final damage = (monster.attackPower - pet.stats.defense * 0.5).round();
-    return damage.clamp(1, 9999);
+    final rawDamage = (monster.attackPower * 0.85 - pet.stats.defense * 0.4).round();
+    // 随机浮动 +0~4
+    final variance = DateTime.now().millisecondsSinceEpoch % 5;
+    return (rawDamage + variance).clamp(2, 9999);
   }
 }

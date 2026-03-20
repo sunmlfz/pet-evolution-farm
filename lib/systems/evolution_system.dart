@@ -23,35 +23,35 @@ class EvolutionCondition {
 class EvolutionSystem {
   /// 进化条件配置
   static const List<EvolutionCondition> kEvolutionConditions = [
-    // NONE -> FIRST: 5级，50进化点，5次战斗
+    // NONE -> FIRST: 3级，20进化点，3次战斗（降低门槛，让玩家更快体验进化）
     EvolutionCondition(
-      minLevel: 5,
-      minEvolutionPoints: 50,
-      minBattleCount: 5,
+      minLevel: 3,
+      minEvolutionPoints: 20,
+      minBattleCount: 3,
       dominantFeedType: '',
       targetStage: EvolutionStage.FIRST,
     ),
-    // FIRST -> SECOND: 15级，200进化点，20次战斗
+    // FIRST -> SECOND: 8级，80进化点，10次战斗
     EvolutionCondition(
-      minLevel: 15,
-      minEvolutionPoints: 200,
-      minBattleCount: 20,
+      minLevel: 8,
+      minEvolutionPoints: 80,
+      minBattleCount: 10,
       dominantFeedType: '',
       targetStage: EvolutionStage.SECOND,
     ),
-    // SECOND -> FINAL: 30级，500进化点，50次战斗
+    // SECOND -> FINAL: 15级，200进化点，25次战斗
     EvolutionCondition(
-      minLevel: 30,
-      minEvolutionPoints: 500,
-      minBattleCount: 50,
+      minLevel: 15,
+      minEvolutionPoints: 200,
+      minBattleCount: 25,
       dominantFeedType: '',
       targetStage: EvolutionStage.FINAL,
     ),
-    // FINAL -> RARE（特殊条件：稀有蛋 + 30次战斗胜利 + 大量SKILL喂食）
+    // FINAL -> RARE（特殊条件：稀有蛋 + 技能主导喂食 + 20次胜利 + 500进化点）
     EvolutionCondition(
-      minLevel: 30,
-      minEvolutionPoints: 800,
-      minBattleCount: 30,
+      minLevel: 20,
+      minEvolutionPoints: 500,
+      minBattleCount: 20,
       dominantFeedType: 'SKILL',
       targetStage: EvolutionStage.RARE,
       isRare: true,
